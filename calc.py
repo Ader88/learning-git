@@ -35,3 +35,20 @@ def main():
         else:
             a = float(input("Podaj składnik 1: "))
             b = float(input("Podaj składnik 2: "))
+        if operacja == 1:
+            logging.info(f"Dodaję {', '.join(map(str, args))}")
+            result = dodawanie(*args)
+        elif operacja == 2:
+            logging.info(f"Odejmuję {a} i {b}")
+            result = odejmowanie(a, b)
+        elif operacja == 3:
+            logging.info(f"Mnóżę {', '.join(map(str, args))}")
+            result = mnozenie(*args)
+        elif operacja == 4:
+            logging.info(f"Dzielę {a} przez {b}")
+            result = dzielenie(a, b)
+
+        print(f"Wynik to {result:.2f}")
+
+    else:
+        print("Błędny numer operacji. Wybierz 1, 2, 3 lub 4.")
