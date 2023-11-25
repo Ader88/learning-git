@@ -52,3 +52,5 @@ def main():
 
     else:
         print("Błędny numer operacji. Wybierz 1, 2, 3 lub 4.")
+if __name__ == "__main__":
+    main()
