@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Walut</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        select, input, button {
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Kalkulator Walut</h2>
+    
+    <form id="currencyCalculator">
+        <label for="currencySelect">Wybierz walutę:</label>
+        <select id="currencySelect"></select>
+
+        <label for="amountInput">Ilość waluty:</label>
+        <input type="text" id="amountInput" placeholder="Wprowadź ilość waluty">
+
+        <button type="button" onclick="calculateCost()">Przelicz</button>
+
+        <div id="result"></div>
+
+        <script>
+            // Dane kursów walut
+            var ratesList = [
+                {"code": "USD", "bid": 3.9353, "ask": 4.0149},
+                {"code": "AUD", "bid": 2.6371, "ask": 2.6903},
+                {"code": "CAD", "bid": 2.9464, "ask": 3.006},
+                {"code": "EUR", "bid": 4.3073, "ask": 4.3943},
+                {"code": "HUF", "bid": 0.011361, "ask": 0.011591},
+                {"code": "CHF", "bid": 4.6223, "ask": 4.7157},
+                {"code": "GBP", "bid": 4.9893, "ask": 5.0901},
+                {"code": "JPY", "bid": 0.027178, "ask": 0.027728},
+                {"code": "CZK", "bid": 0.1745, "ask": 0.1781},
+                {"code": "DKK", "bid": 0.5776, "ask": 0.5892},
+                {"code": "NOK", "bid": 0.3805, "ask": 0.3881},
+                {"code": "SEK", "bid": 0.3839, "ask": 0.3917},
+                {"code": "XDR", "bid": 5.2707, "ask": 5.3771}
+            ];
+
+            // Wypełnienie pola select danymi
+            var currencySelect = document.getElementById("currencySelect");
+            ratesList.forEach(function(rate) {
+                var option = document.createElement("option");
+                option.value = rate.code;
+                option.text = rate.code; // wybór opcji wyświetlanej na liście rozwijalnej
+                currencySelect.add(option);
+            });
+
+            // Funkcja przeliczająca koszt
+            function calculateCost() {
+                var selectedCurrencyCode = currencySelect.value;
+                var amount = parseFloat(document.getElementById("amountInput").value);
+                
+                if (isNaN(amount)) {
+                    alert("Wprowadź poprawną ilość waluty.");
+                    return;
+                }
+
+                var selectedRate = ratesList.find(function(rate) {
+                    return rate.code === selectedCurrencyCode;
+                });
+
+                if (!selectedRate) {
+                    alert("Nie znaleziono kursu dla wybranej waluty.");
+                    return;
+                }
+
+                var costInPLN = amount * selectedRate.ask;
+                document.getElementById("result").innerHTML = "Koszt operacji: " + costInPLN.toFixed(2) + " PLN";
+            }
+        </script>
+    </form>
+</body>
+</html>
