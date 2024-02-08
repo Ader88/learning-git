@@ -1,7 +1,7 @@
 Aby uruchomić aplikację należy:
 
-1. pobrać i rozpakować archiwum zip.
-2. uruchomić plik run.py z katalogu głównego aplikacji.
+1. Pobrać i rozpakować archiwum zip.
+2. Uruchomić plik run.py z katalogu głównego aplikacji.
 3. Przejść w przeglądarce internetowej na stronę http://127.0.0.1:5000/
 
 Baza zawiera kilka tytułów. 
