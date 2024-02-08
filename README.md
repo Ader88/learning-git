@@ -6,4 +6,4 @@ Aby uruchomić aplikację należy:
 
 Baza zawiera kilka tytułów. 
 Aplikacja umożliwia edytowanie istniejących tytułów, ich usuwanie oraz dodawanie nowych. 
-Poza Autorem i tytułem książki wyświetlane są także informacje dotyczące statusu książki (na półce lub wypożyczona) i terminów wypożyczenia oraz zwrotu (jeśli książka została wypożyczona).
+Poza autorem i tytułem książki wyświetlane są także informacje dotyczące statusu książki (na półce lub wypożyczona) i terminów wypożyczenia oraz zwrotu (jeśli książka została wypożyczona).
